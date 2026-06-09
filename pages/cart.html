@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BMDAY | Cart</title>
+
+    <link rel="stylesheet" href="../css/cart.css">
+</head>
+
+<body>
+
+<!-- ================= HEADER ================= -->
+<header class="bmday-nav">
+
+    <div class="bmday-left">
+        <a href="../pages/index.html" class="logo">
+            <img src="../assets/nav-header 1/Bmday_logo.png" alt="BMDAY logo">
+        </a>
+
+        
+    </div>
+
+    <div class="bmday-center">
+        <h2>Your Cart</h2>
+
+        <!-- single source of truth (for later JS) -->
+        <span id="cart-items-count" class="cart-info">0 items</span>
+    </div>
+
+    <div class="bmday-right">
+
+        <a href="../pages/signin.html" class="signin-btn">Sign in</a>
+
+        <div class="icon-btn cart">
+            🛒
+            <span id="cart-count">0</span>
+        </div>
+
+    </div>
+
+</header>
+
+
+<!-- ================= CART STATUS BAR ================= -->
+<section class="cart-status-bar">
+
+    <div class="status-item">
+        🛒 <span id="status-items">0</span> Items
+    </div>
+
+    <div class="status-item">
+         Ksh <span id="cart-total">0</span>
+    </div>
+
+    <div class="status-item">
+         Delivery: <span id="cart-delivery-status">Standard (2–3 days)</span>
+    </div>
+
+</section>
+
+
+<!-- ================= MAIN CART LAYOUT ================= -->
+<main class="cart-main">
+
+    <!-- CART ITEMS (LEFT SIDE) -->
+    <section class="cart-items">
+
+        <h2>Your Items</h2>
+
+        <!-- dynamic injection point -->
+        <div id="cart-items-container">
+
+        
+        </div>
+
+    </section>
+
+
+    <!-- ORDER SUMMARY (RIGHT SIDE) -->
+    <aside class="cart-summary">
+
+        <h3>Order Summary</h3>
+
+        <div class="summary-row">
+            <span>Subtotal</span>
+            <span id="subtotal">Ksh 0</span>
+        </div>
+
+        <div class="summary-row">
+            <span>Discount</span>
+            <span id="discount">Ksh 0</span>
+        </div>
+
+        <div class="summary-row">
+            <span>You Save</span>
+            <span id="savings">Ksh 0</span>
+        </div>
+
+        <hr>
+
+        <div class="summary-total">
+            <span>Total</span>
+            <span id="total">Ksh 0</span>
+        </div>
+
+        <button class="checkout-btn">
+            Proceed to Checkout
+        </button>
+
+    </aside>
+
+</main>
+
+
+<!-- ================= COUPON SECTION ================= -->
+<section class="coupon-section">
+
+    <h3>Have a Coupon?</h3>
+
+    <div class="coupon-box">
+
+        <input type="text" id="coupon-input" placeholder="Enter coupon code">
+
+        <button class="apply-coupon-btn">Apply</button>
+
+    </div>
+
+    <p id="coupon-message"></p>
+
+</section>
+
+
+<!-- ================= DELIVERY INFO ================= -->
+<section class="delivery-info">
+
+    <h3> Delivery Information</h3>
+
+    <div class="delivery-card">
+
+        <div class="delivery-row">
+            <span class="label">Deliver to:</span>
+            <span id="delivery-location">Athi River, Kenya</span>
+        </div>
+
+        <div class="delivery-row">
+            <span class="label">Estimated Delivery:</span>
+            <span id="delivery-time">2–3 Business Days</span>
+        </div>
+
+        <div class="delivery-row">
+            <span class="label">Shipping Cost:</span>
+            <span id="shipping-cost">Calculated at checkout</span>
+        </div>
+
+        <div class="delivery-highlight">
+            <p id="delivery-message">
+                 Add Ksh 1,000 more to unlock FREE delivery
+            </p>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= RECOMMENDATIONS ================= -->
+<section class="recommended-products">
+
+    <h3> You May Also Like</h3>
+
+    <p class="recommendation-subtext">
+        Based on items in your cart
+    </p>
+
+    <div class="recommendation-track">
+
+
+    </div>
+
+</section>
+<script src="../js/cartEngine.js"></script>
+<script src="../js/cart.js">
+    </script>
+</body>
+</html>

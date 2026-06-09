@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BMDAY | Products</title>
+
+    <link rel="stylesheet" href="../css/products.css">
+</head>
+
+<body>
+
+<!-- ================= UNIFIED HEADER ================= -->
+<header class="bmday-nav">
+
+    <div class="bmday-left">
+        <a href="../pages/index.html" class="logo">
+            <img src="../assets/nav-header 1/Bmday_logo.png" alt="BMDAY logo">
+        </a>
+    </div>
+
+    <div class="bmday-search">
+        <input type="text" id="searchInput" placeholder="Search products...">
+        <span class="search-icon">🔍</span>
+    </div>
+
+    <div class="bmday-right">
+        <a href="../pages/signin.html" class="signin-btn">Sign in</a>
+        <a href="../pages/cart.html" class="icon-btn cart">
+        🛒
+        <span class="cart-count">0</span>
+    </a>
+    </div>
+
+</header>
+
+<!-- ================= MOBILE CATEGORY BAR (IMPORTANT FOR UX) ================= -->
+<nav class="product-categories">
+    <a href="products.html?category=fashion-trends">Fashion</a>
+    <a href="products.html?category=latest-devices">Devices</a>
+    <a href="products.html?category=toy-collections">Toys</a>
+    <a href="products.html?category=deodorant-collection">Beauty</a>
+     <a href="products.html?category=stationery">Stationery</a>
+</nav>
+
+<!-- ================= PAGE TITLE ================= -->
+<section class="product-page-title">
+    <h2 id="pageTitle">Products</h2>
+</section>
+
+<!-- ================= MAIN PRODUCT AREA ================= -->
+<main class="product-section">
+
+    <div id="product-container" class="product-grid"></div>
+
+</main>
+
+<!-- ================= LOADING STATE ================= -->
+<p id="loadingText" class="loading">Loading products...</p>
+<!-- ================= BUY MODAL ================= -->
+
+<div class="buy-modal" id="buyModal">
+
+    <div class="buy-modal-content">
+
+        <span class="close-modal" id="closeModal">&times;</span>
+
+        <img id="modalImage" src="" alt="Product">
+
+        <h3 id="modalName"></h3>
+
+        <p id="modalPrice" class="modal-price"></p>
+
+        <button id="confirmBuy" class="buy-now">
+            Proceed to Sign In
+        </button>
+
+    </div>
+
+</div>
+
+<!-- ================= SCRIPT ================= -->
+<script src="../js/products.js"></script>
+<script src="../js/cart.js">
+    </script>
+    <script src="../js/cartEngine.js"></script>
+
+</body>
+</html>

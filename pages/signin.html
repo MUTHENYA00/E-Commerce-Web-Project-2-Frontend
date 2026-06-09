@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Authentication</title>
+
+    <link rel="stylesheet" href="../css/signin.css">
+</head>
+
+<body>
+
+<div class="login-container">
+
+    <!-- LOGIN FORM -->
+    <form id="loginForm" action="/login" method="POST">
+
+        <h2>Sign In</h2>
+
+        <div class="input-group">
+            <label>Email</label>
+            <input type="email" name="email" required>
+        </div>
+
+        <div class="input-group">
+            <label>Password</label>
+            <input type="password" name="password" required>
+        </div>
+
+        <button class="btn" type="submit">Login</button>
+
+        <p class="footer-text">
+            Don't have an account?
+            <a href="#" id="showSignup">Sign Up</a>
+        </p>
+
+    </form>
+
+
+
+    <!-- SIGNUP FORM -->
+    <form id="signupForm" action="/signup" method="POST">
+
+        <h2>Create Account</h2>
+
+        <div class="input-group">
+            <label>Full Name</label>
+            <input type="text" name="name" required>
+        </div>
+
+        <div class="input-group">
+            <label>Email</label>
+            <input type="email" name="email" required>
+        </div>
+
+        <div class="input-group">
+            <label>Password</label>
+            <input type="password" name="password" required>
+        </div>
+
+        <button class="btn" type="submit">Sign Up</button>
+
+        <p class="footer-text">
+            Already have an account?
+            <a href="#" id="showLogin">Sign In</a>
+        </p>
+
+
+        <!-- SOCIAL LOGIN -->
+        <p style="margin:15px 0; font-size:13px; color:#666;">
+            Or continue with
+        </p>
+
+        <div class="social-login">
+
+            <a href="https://accounts.google.com/signin/v2/identifier?flowName=GlifWebSignIn&flowEntry=ServiceLogin"
+               class="social-btn google"
+               target="_blank">
+
+                <img src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg"
+                     width="20">
+
+                Continue with Google
+            </a>
+
+
+            <a href="https://login.microsoftonline.com/"
+               class="social-btn microsoft"
+               target="_blank">
+
+                <img src="https://upload.wikimedia.org/wikipedia/commons/4/44/Microsoft_logo.svg"
+                     width="20">
+
+                Continue with Microsoft
+            </a>
+
+
+            <a href="https://appleid.apple.com/"
+               class="social-btn apple"
+               target="_blank">
+
+                <img src="https://upload.wikimedia.org/wikipedia/commons/f/fa/Apple_logo_black.svg"
+                     width="20">
+
+                Continue with Apple
+            </a>
+
+        </div>
+
+    </form>
+
+</div>
+
+<script src="../js/signin.js"></script>
+
+</body>
+</html>

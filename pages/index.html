@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BMDAY | Discover Unique Finds</title>
+
+    <link rel="stylesheet" href="../css/index.css">
+</head>
+
+ <body>
+
+<header class="bmday-nav">
+    <!-- LEFT -->
+    <div class="bmday-left">
+          <img src="../assets/nav-header 1/menu_icon .png"
+             class="menu-icon"
+             onclick="openSidebar()"
+             alt="Menu">
+
+        <a href="../pages/index.html" class="logo">
+            <img src="../assets/nav-header 1/Bmday_logo.png"
+                 alt="BMDAY logo">
+        </a>
+
+    </div>
+
+    <!-- CENTER (SEARCH) -->
+    <div class="bmday-search">
+          <button class="search-btn">
+            <img src="../assets/nav-header 1/search_icon.png" alt="Search">
+        </button>
+
+        <input type="text" placeholder="Search products, deals, categories...">
+
+        <div class="search-dropdown">
+
+            <div class="search-title">Quick suggestions</div>
+
+            <a href="products?category=fashion-trends" class="dropdown-item">
+                Fashion clothes
+            </a>
+
+            <a href="products?category=latest-devices" class="dropdown-item">
+                Latest devices
+            </a>
+
+            <a href="products?category=home-essentials" class="dropdown-item">
+                Home essentials
+            </a>
+
+            <a href="products?category=best-deals" class="dropdown-item">
+                Best deals
+            </a>
+
+        </div>
+
+    </div> 
+
+    <!-- RIGHT -->
+   <div class="bmday-right">
+    <a href="../pages/signin.html" class="signin-btn">Sign in</a>
+    <div class="icon-btn"></div>
+    
+    <!-- Move the <a> tag to wrap the cart contents completely -->
+    <a href="../pages/cart.html" class="icon-btn cart">
+        🛒
+        <span class="cart-count">0</span>
+    </a>
+</div>
+
+
+</header>
+<!-- SIDEBAR MENU  -->
+<div class="sidebar" id="sidebar">
+
+    <div class="sidebar-header">
+        <h3>Menu</h3>
+        <span onclick="closeSidebar()">✖</span>
+    </div>
+
+    <ul class="sidebar-links">
+
+        <li><a href="products.html?category=trending"> Trending</a></li>
+        <li><a href="products.html?category=deals">Best Deals</a></li>
+        <li><a href="products.html?category=new">New Arrivals</a></li>
+        <li><a href="products.html?category=orders"> My Orders</a></li>
+        <li><a href="products.html?category=wishlist"> Wishlist</a></li>
+
+    </ul>
+
+</div>
+
+<!-- Overlay -->
+<div class="sidebar-overlay" onclick="closeSidebar()"></div>
+
+<!-- CATEGORY BAR (IMPORTANT SEPARATION) -->
+<nav class="bmday-categories">
+    <a href="products?category=fashion-trends">Fashion</a>
+    <a href="products?category=latest-devices">Devices</a>
+    <a href="products?category=school-essentials">School Items</a>
+    <a href="products?category=toy-collections">Toys</a>
+    <a href="products?category=books-to-read">Books</a>
+    <a href="products?category=deals">Deals</a>
+</nav>
+
+<!--  HERO SLIDER  -->
+<section class="header-slide">
+    <button class="arrow left">❮</button>
+    
+    <div class="header-banner-image">
+        <!-- Added the track div directly in HTML -->
+        <div class="slide-track">
+             <a href="products?category=kitchen" class="slide">
+            <img src="../assets/Header Banner Slides/kitchen products.png" class="header-img" alt="Kitchen">
+             </a>
+
+             <a href="products?category=toy" class="slide">
+            <img src="../assets/Header Banner Slides/toy for little ones.jpg" class="header-img" alt="Toys">
+             </a>
+
+         <a href="products?category=game-store" class="slide-item">
+    <img src="../assets/Header Banner Slides/header3_gaming3.png" class="header-img" alt="Gaming">
+</a>
+  <a href="products.html?category=promotion" class="slide">
+            <img src="../assets/Header Banner Slides/promotional.png" class="header-img" alt="Deals">
+  </a>
+        </div>
+    </div>
+
+    <button class="arrow right">❯</button>
+</section>
+
+
+<!--  CATEGORY BOXES  -->
+
+<section class="category-grid">
+
+    <a href="products?category=fashion-trends" class="category-card">
+        <img src="../assets/Box5-8/fashion clothes_result.png" alt="Fashion">
+        <h3>Fashion Clothes</h3>
+    </a>
+
+    <a href="products?category=latest-devices" class="category-card">
+        <img src="../assets/Box1-4/Latest devices_result.png" alt="Devices">
+        <h3>Latest Devices</h3>
+    </a>
+
+    <a href="products?category=deodorant-collection" class="category-card">
+        <img src="../assets/Box5-8/deodrant pack_result.png" alt="Perfumes">
+        <h3>Deodorants & Perfumes</h3>
+    </a>
+
+    <a href="products?category=grooming" class="category-card">
+        <img src="../assets/Box5-8/Grooming Product.png" alt="Grooming">
+        <h3>Grooming Products</h3>
+    </a>
+
+</section>
+<!-- SECOND  CATEGORY GRID -->
+ <section class="category-grid">
+    <a href=" products?category=toy-collections" class="category-card">
+        <img src="../assets/Box1-4/toy package.png" alt="Toys">
+        <h3>Toys Under KSh 3250</h3>
+        <span class="cta">Shop now</span>
+    </a>
+
+    <a href="products?category=school-essentials" class="category-card">
+        <img src="../assets/Box1-4/schoolEsentials.png" alt="School">
+        <h3>School Essentials</h3>
+        <span class="cta">Shop now</span>
+    </a>
+
+    <a href="products?category=books-to-read" class="category-card">
+        <img src="../assets/Box1-4/book.png" alt="Books">
+        <h3>Books To Read</h3>
+        <span class="cta">Shop now</span>
+    </a>
+
+    <a href="products?category=pc-deals" class="category-card">
+        <img src="../assets/Box1-4/pcDeals.png" alt="PC Deals">
+        <h3>Deals in PC</h3>
+        <span class="cta">Shop now</span>
+    </a>
+
+</section>
+<!-- SPORTS SLIDER  -->
+ <section class="sports-section">
+
+    <h2>Sports & Outdoors Collection</h2>
+
+    <div class="sports-grid">
+        <a href="products?category=sports" class="sport-card">
+            <img src="../assets/Products-Slider1/swimJacket.png">
+            <div class="label">Swim Jacket</div>
+        </a>
+
+        <a href="products?category=sports" class="sport-card">
+            <img src="../assets/Products-Slider1/baseball.png">
+            <div class="label">Baseball Gear</div>
+        </a>
+
+        <a href="products?category=sports" class="sport-card">
+            <img src="../assets/Products-Slider1/sportShoe.png">
+            <div class="label">Running Shoes</div>
+        </a>
+
+        <a href="products?category=sports" class="sport-card">
+            <img src="../assets/Products-Slider1/mountainBike.png">
+            <div class="label">Mountain Bike</div>
+        </a>
+
+        <a href="products?category=sports" class="sport-card">
+            <img src="../assets/Products-Slider1/boxing_gloves.png">
+            <div class="label">Boxing Gloves</div>
+        </a>
+
+    </div>
+
+</section>
+
+
+          <!-- CATEGORY GRID (STUDY SECTION )  -->
+
+<section class="category-grid">
+
+    <a href="products.html?category=stationery" class="category-card">
+        <img src="../assets/Box9-12/studying stationery_result.png" alt="Stationery">
+        <h3>Stationery</h3>
+        <span class="cta">Shop now</span>
+    </a>
+
+    <a href="products.html?category=laptops" class="category-card">
+        <img src="../assets/Box9-12/students laptop_result.png" alt="Laptops">
+        <h3>Laptops for Study</h3>
+        <span class="cta">Shop now</span>
+    </a>
+
+    <a href="products.html?category=office-chairs" class="category-card">
+        <img src="../assets/Box9-12/office chairs_result.png" alt="Office Chair">
+        <h3>Office Chair</h3>
+        <span class="cta">Shop now</span>
+    </a>
+
+    <a href="products.html?category=lighting-bulb" class="category-card">
+        <img src="../assets/Box9-12/bulb_result.png" alt="Lighting">
+        <h3>Lighting Bulbs</h3>
+        <span class="cta">Shop now</span>
+    </a>
+
+</section>
+<!-- DEALS SECTION--> 
+
+<section class="product-section">
+
+    <h2 class="section-title"> Best Deals</h2>
+
+    <div class="product-track">
+
+        <a href="products.html?category=SportsBike-deal" class="product-card">
+
+            <img src="../assets/Slider-Products -price/sportsBike.png" alt="Sports Bike">
+
+            <h3>Sports Bike</h3>
+
+            <span class="badge">30% OFF</span>
+
+            <div class="price">
+                <span class="new-price">Ksh 7000</span>
+                <span class="old-price">Ksh 10000</span>
+            </div>
+
+        </a>
+
+        <a href="products.html?category=Dstv-deal" class="product-card">
+
+            <img src="../assets/Slider-Products -price/Dstv.png" alt="DSTV Kit">
+
+            <h3>DSTV Kit</h3>
+
+            <span class="badge">25% OFF</span>
+
+            <div class="price">
+                <span class="new-price">Ksh 5625</span>
+                <span class="old-price">Ksh 7500</span>
+            </div>
+
+        </a>
+
+        <a href="products.html?category=Roaster-deal" class="product-card">
+
+            <img src="../assets/Slider-Products -price/sandwich_roaster.png" alt="Sandwich Roaster">
+
+            <h3>Sandwich Roaster</h3>
+
+            <span class="badge">15% OFF</span>
+
+            <div class="price">
+                <span class="new-price">Ksh 4080</span>
+                <span class="old-price">Ksh 4800</span>
+            </div>
+
+        </a>
+
+        <a href="products.html?category=HandDrier-deal" class="product-card">
+
+            <img src="../assets/Slider-Products -price/hand_drier.png" alt="Hand Dryer">
+
+            <h3>Hand Dryer</h3>
+
+            <span class="badge">30% OFF</span>
+
+            <div class="price">
+                <span class="new-price">Ksh 2100</span>
+                <span class="old-price">Ksh 3000</span>
+            </div>
+
+        </a>
+
+    </div>
+
+</section>
+
+<!-- PHONE COLLECTION  -->
+ <section class="product-section">
+    <h2 class="section-title">Phones Collection</h2>
+    <div class="product-track">
+         <a href="#" class="product-card">
+            <img src="../assets/Products-Slider2/iphone16.png" alt="iPhone 16">
+            <p>iPhone 16</p>
+        </a>
+
+        <a href="#" class="product-card">
+            <img src="../assets/Products-Slider2/samsungA57 (2).png" alt="iPhone 17">
+            <p>Samaung Galaxy A57 5G</p>
+        </a>
+
+        <a href="#" class="product-card">
+            <img src="../assets/Products-Slider2/onePlus.png" alt="OnePlus">
+            <p>OnePlus</p>
+        </a>
+
+        <a href="#" class="product-card">
+            <img src="../assets/Products-Slider2/Redmi15Note.png" alt="Redmi">
+            <p>Redmi Note</p>
+        </a>
+
+        <a href="#" class="product-card">
+            <img src="../assets/Products-Slider2/samsungS26.png" alt="Samsung">
+            <p>Samsung S26</p>
+        </a>
+
+        <a href="#" class="product-card">
+            <img src="../assets/Products-Slider2/vivo V70.png" alt="Vivo">
+            <p>Vivo V70</p>
+        </a>
+
+    </div>
+
+</section>
+
+           <!-- FINAL BOXES  -->
+
+<section class="category-grid">
+
+    <a href="products.html?category=flatware" class="category-card">
+        <img src="../assets/Box13-16/plastic flatware.png" alt="Flatware">
+        <h3>Flatware</h3>
+    </a>
+
+    <a href="products.html?category=water" class="category-card">
+        <img src="../assets/Box13-16/water dispenser.png" alt="Water Dispenser">
+        <h3>Water Dispenser</h3>
+    </a>
+
+    <a href="products.html?category=pump" class="category-card">
+        <img src="../assets/Box13-16/sump pump.png" alt="Sump Pump">
+        <h3>Sump Pump</h3>
+    </a>
+
+    <a href="products.html?category=cctv" class="category-card">
+        <img src="../assets/Box13-16/CCTv.png" alt="CCTV Kit">
+        <h3>CCTV Kit</h3>
+    </a>
+
+</section>
+<!-- ================= FOOTER ================= -->
+
+<footer>
+    <img src="../assets/nav-header 1/Bmday_logo.png" width="100">
+    <p>© 2026 BMDAY.com</p>
+</footer>
+
+<script src="../js/index.js"></script>
+<script src="../js/cartEngine.js"></script>
+
+</body>
+</html>

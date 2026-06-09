@@ -1,0 +1,166 @@
+body{
+    margin:0;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #9491d4, #9333ea);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height:100vh;
+}
+
+/* MAIN CONTAINER */
+.login-container{
+    background:#fff;
+    padding:30px;
+    width:340px;
+    border-radius:12px;
+    box-shadow:0 10px 30px rgba(0,0,0,0.2);
+    text-align:center;
+}
+
+/* HEADERS */
+.login-container h2{
+    margin-bottom:15px;
+    color:#333;
+}
+
+/* SIGN UP LOOK DIFFERENCE */
+#signupForm h2{
+    color:#16a34a; /* green for signup */
+}
+
+#loginForm h2{
+    color:#4f46e5; /* blue for login */
+}
+
+/* INPUT GROUP */
+.input-group{
+    margin-bottom:15px;
+    text-align:left;
+}
+
+.input-group label{
+    font-size:14px;
+    color:#555;
+}
+
+.input-group input{
+    width:100%;
+    padding:10px;
+    margin-top:5px;
+    border:1px solid #ddd;
+    border-radius:8px;
+    outline:none;
+    transition:0.3s;
+}
+
+/* focus effect */
+.input-group input:focus{
+    border-color:#4f46e5;
+    box-shadow:0 0 5px rgba(79,70,229,0.3);
+}
+
+/* BUTTON BASE */
+.btn{
+    width:100%;
+    padding:10px;
+    border:none;
+    color:#fff;
+    border-radius:8px;
+    cursor:pointer;
+    font-size:16px;
+    margin-top:10px;
+    transition:0.3s;
+}
+
+/* LOGIN BUTTON */
+#loginForm .btn{
+    background:#4f46e5;
+}
+
+#loginForm .btn:hover{
+    background:#3730a3;
+}
+
+/* SIGNUP BUTTON */
+#signupForm .btn{
+    background:#16a34a;
+}
+
+#signupForm .btn:hover{
+    background:#15803d;
+}
+
+/* FOOTER TEXT */
+.footer-text{
+    margin-top:15px;
+    font-size:13px;
+}
+
+.footer-text a{
+    color:#6b6b79;
+    text-decoration:none;
+}
+
+/* TABS */
+.tabs{
+    display:flex;
+    justify-content:space-between;
+    margin-bottom:15px;
+}
+
+.tabs button{
+    width:48%;
+    padding:10px;
+    border:none;
+    border-radius:8px;
+    cursor:pointer;
+    background:#eee;
+    font-weight:bold;
+}
+
+.tabs button:hover{
+    background:#ddd;
+}
+#signupForm {
+    display: none;
+}
+
+.social-login {
+    margin-top: 15px;
+}
+
+.social-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 10px;
+    margin-top: 8px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-size: 14px;
+    border: 1px solid #ddd;
+    background: #fff;
+    color: #333;
+    transition: 0.3s;
+}
+
+.social-btn:hover {
+    background: #f2f2f2;
+}
+
+/* GOOGLE */
+.social-btn.google {
+    border-color: #db4437;
+}
+
+/* MICROSOFT */
+.social-btn.microsoft {
+    border-color: #0078d4;
+}
+
+/* APPLE */
+.social-btn.apple {
+    border-color: #000;
+}
