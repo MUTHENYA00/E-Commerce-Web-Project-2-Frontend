@@ -10,9 +10,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const totalEl = document.getElementById("total");
     const deliveryMessage = document.getElementById("delivery-message");
 
-    /* =========================
-       RENDER CART
-    ========================= */
+    /* RENDER CART= */
 
     function renderCart() {
 
@@ -62,10 +60,7 @@ document.addEventListener("DOMContentLoaded", () => {
         updateUI();
     }
 
-    /* =========================
-       UI UPDATES (SINGLE SOURCE)
-    ========================= */
-
+    /* ===UI UPDATE */
     function updateUI() {
 
         const totals = cartEngine.getTotals();
@@ -90,17 +85,13 @@ document.addEventListener("DOMContentLoaded", () => {
                     `Add Ksh ${remaining} more to unlock FREE delivery`;
             }
         }
-
-        // IMPORTANT: badge sync handled by engine, so no duplicate logic here
     }
 
     document.addEventListener("click", (e) => {
 
     const qtyId = e.target.dataset.id;
 
-    /* =========================
-       QUANTITY + REMOVE
-    ========================= */
+    /*  QUANTITY + REMOVE=== */
 
     if (qtyId && e.target.classList.contains("qty-minus")) {
         cartEngine.updateQuantity(qtyId, -1);
@@ -117,9 +108,7 @@ document.addEventListener("DOMContentLoaded", () => {
         return;
     }
 
-    /* =========================
-       RECOMMENDATION ADD TO CART
-    ========================= */
+    /* RECOMMENDATION ADD TO CART */
 
     const recBtn = e.target.closest(".add-rec-btn");
 
@@ -186,17 +175,9 @@ async function loadRecommendations() {
     }
   
 }
-    /* =========================
-       ENGINE CONNECTION
-    ========================= */
-
+  
     cartEngine.subscribe(renderCart);
-
-    /* =========================
-       INITIAL LOAD
-    ========================= */
-
-    renderCart();
+  renderCart();
 
 });
   loadRecommendations();

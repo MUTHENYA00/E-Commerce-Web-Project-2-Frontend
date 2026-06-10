@@ -58,8 +58,7 @@ document.addEventListener("DOMContentLoaded", () => {
     startAutoplay();
 });
 
-//  SEARCH SYSTEM (MODERN BACKEND ONLY) =================
-
+//  SEARCH SYSTEM 
 const searchInput = document.querySelector(".bmday-search input");
 const searchslideTrack = document.querySelector(".slide-track");
 
