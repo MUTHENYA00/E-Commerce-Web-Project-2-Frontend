@@ -1,8 +1,6 @@
 (function () {
 
-    /* =========================
-       LOAD CART STATE
-    ========================= */
+    /* --loading cart-- */
 
     function loadCart() {
         try {
@@ -15,17 +13,13 @@
 
     let cart = loadCart();
 
-    /* =========================
-       SAVE CART STATE
-    ========================= */
+    /* SAVE CART STATE */
 
     function saveCart() {
         localStorage.setItem("cart", JSON.stringify(cart));
     }
 
-    /* =========================
-       EVENT SYSTEM (UI SYNC)
-    ========================= */
+    /*  EVENT SYSTEM (UI SYNC) */
 
     const listeners = [];
 
@@ -41,9 +35,7 @@
         syncCartBadges(snapshot);
     }
 
-    /* =========================
-       GLOBAL BADGE SYNC
-    ========================= */
+    /*  GLOBAL BADGE SYNC*/
 
     function syncCartBadges(cartData) {
 
@@ -59,17 +51,13 @@
         });
     }
 
-    /* =========================
-       GET CART
-    ========================= */
+    /*GET CART */
 
     function getCart() {
         return cart;
     }
 
-    /* =========================
-       ADD ITEM
-    ========================= */
+    /* ADD ITEM */
 
     function addToCart(product) {
 
@@ -96,9 +84,7 @@
         notify();
     }
 
-    /* =========================
-       REMOVE ITEM
-    ========================= */
+    /*  REMOVE ITEM */
 
     function removeFromCart(productId) {
 
@@ -108,9 +94,7 @@
         notify();
     }
 
-    /* =========================
-       UPDATE QUANTITY
-    ========================= */
+    /*UPDATE QUANTITY= */
 
     function updateQuantity(productId, change) {
 
@@ -129,9 +113,7 @@
         notify();
     }
 
-    /* =========================
-       CLEAR CART
-    ========================= */
+    /* CLEAR CART */
 
     function clearCart() {
         cart = [];
@@ -139,9 +121,7 @@
         notify();
     }
 
-    /* =========================
-       TOTALS ENGINE
-    ========================= */
+    /* TOTALS ENGINE */
 
     function getTotals() {
 
@@ -157,17 +137,13 @@
         };
     }
 
-    /* =========================
-       INIT SYNC ON PAGE LOAD
-    ========================= */
+    /* INIT SYNC ON PAGE LOAD*/
 
     document.addEventListener("DOMContentLoaded", () => {
         syncCartBadges(cart);
     });
 
-    /* =========================
-       PUBLIC API
-    ========================= */
+    /* PUBLIC API */
 
     window.cartEngine = {
         getCart,

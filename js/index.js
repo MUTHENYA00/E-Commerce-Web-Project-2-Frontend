@@ -97,7 +97,7 @@ async function performSearch(query) {
 const q = query.trim();
     if (!q) return;
  // just pass query
-    window.location.href = `products.html?search=${encodeURIComponent(q)}`;
+    window.location.href = `products?search=${encodeURIComponent(q)}`;
 }
 // ================= ENTER KEY SEARCH =================
 searchInput?.addEventListener("keydown", (e) => {
