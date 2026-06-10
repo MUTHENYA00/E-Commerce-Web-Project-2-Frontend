@@ -1,49 +1,39 @@
 //Hero Section//
 document.addEventListener("DOMContentLoaded", () => {
-    const slideContainer = document.querySelector(".header-banner-image");
+
+    const track = document.querySelector(".slide-track");
+    const slides = document.querySelectorAll(".slide");
     const prevBtn = document.querySelector(".arrow.left");
     const nextBtn = document.querySelector(".arrow.right");
 
-    if (!slideContainer) return;
+    if (!track || slides.length === 0) return;
 
-    //  Creating  the slider track element dynamically
-    const track = document.createElement("div");
-    track.className = "slide-track";
-
-    // Moving images inside the track without breaking them
-    const originalSlides = slideContainer.querySelectorAll(".header-img");
-    originalSlides.forEach(slide => track.appendChild(slide));
-    slideContainer.appendChild(track);
-
-    //sliding logic variables
     let currentSlide = 0;
-    const totalSlides = originalSlides.length;
     let slideInterval;
 
     function updateSlider() {
-        track.style.transform = `translateX(-${currentSlide * 100}%)`;
+        track.style.transform =
+            `translateX(-${currentSlide * 100}%)`;
     }
 
     function nextSlide() {
-        if (totalSlides === 0) return;
-        currentSlide = (currentSlide + 1) % totalSlides;
+        currentSlide = (currentSlide + 1) % slides.length;
         updateSlider();
     }
 
     function prevSlide() {
-        if (totalSlides === 0) return;
-        currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+        currentSlide = (currentSlide - 1 + slides.length) % slides.length;
         updateSlider();
     }
 
     function startAutoplay() {
         clearInterval(slideInterval);
+
         slideInterval = setInterval(() => {
-            if (totalSlides > 1) nextSlide();
+            nextSlide();
         }, 5000);
     }
 
-    // event controls 
     nextBtn?.addEventListener("click", () => {
         nextSlide();
         startAutoplay();
@@ -54,31 +44,12 @@ document.addEventListener("DOMContentLoaded", () => {
         startAutoplay();
     });
 
-    //  slider loop
     startAutoplay();
 });
-
-//  SEARCH SYSTEM 
+// SEARCH SYSTEM 
 const searchInput = document.querySelector(".bmday-search input");
-const searchslideTrack = document.querySelector(".slide-track");
-
-function updateSlider() {
-    if (!slideTrack) return;
-    slideTrack.style.transform = `translateX(-${currentSlide * 100}%)`;
-}
-
-function nextSlide() {
-    currentSlide = (currentSlide + 1) % totalSlides;
-    updateSlider();
-}
-
-function prevSlide() {
-    currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
-    updateSlider();
-}
-dropdown = document.querySelector(".search-dropdown");
+const searchDropdown = document.querySelector(".search-dropdown");
 let searchTimeout;
-
 
 // ---------------- BACKEND SEARCH ----------------
 async function searchProducts(query) {
@@ -91,75 +62,63 @@ async function searchProducts(query) {
         return [];
     }
 }
-// ---------------- MAIN SEARCH ENGINE ----------------
-async function performSearch(query) {
-const q = query.trim();
-    if (!q) return;
- // just pass query
-    window.location.href = `products?search=${encodeURIComponent(q)}`;
-}
-// ================= ENTER KEY SEARCH =================
-searchInput?.addEventListener("keydown", (e) => {
 
+// ---------------- ENTER KEY SEARCH ----------------
+searchInput?.addEventListener("keydown", (e) => {
     if (e.key === "Enter") {
         const value = searchInput.value.trim();
         if (!value) return;
-        performSearch(value);
+        window.location.href = `/products?search=${encodeURIComponent(value)}`;
     }
 });
-// ================= LIVE SEARCH  =================
+
+// ---------------- LIVE SEARCH ----------------
 searchInput?.addEventListener("input", (e) => {
- const value = e.target.value.trim();
+    const value = e.target.value.trim();
+
     clearTimeout(searchTimeout);
-     if (!value) {
+
+    if (!value) {
         searchDropdown?.classList.remove("open");
         return;
     }
-        searchTimeout = setTimeout(async () => {
-            const results = await searchProducts(value);
-            showLiveResults(results);
-        }, 300);
+
+    searchTimeout = setTimeout(async () => {
+        const results = await searchProducts(value);
+        showLiveResults(results);
+    }, 300);
 });
+
 // ---------------- SHOW DROPDOWN RESULTS ----------------
 function showLiveResults(products) {
-
     if (!searchDropdown) return;
+
     searchDropdown.innerHTML = "";
+
     if (!products || products.length === 0) {
-        searchDropdown.innerHTML = `
-            <div class="search-title">No results found</div>
-        `;
-           searchDropdown.classList.add("open");
+        searchDropdown.innerHTML = `<div class="search-title">No results found</div>`;
+        searchDropdown.classList.add("open");
         return;
     }
 
-    const fragment = document.createDocumentFragment();
     products.slice(0, 6).forEach(p => {
-  const item = document.createElement("a");
-   item.href = "products.html";
+        const item = document.createElement("a");
         item.className = "dropdown-item";
-        
+
+        item.href = `/products?search=${encodeURIComponent(p.name)}`;
+
         item.innerHTML = `
             <strong>${p.name}</strong><br>
-            <small>${p.category}</small>
+            
         `;
 
-        item.addEventListener("click", (e) => {
-    e.preventDefault();
-
-    const productName = p.name;
-    window.location.href =
-        `products.html?search=${encodeURIComponent(productName)}`;
-});
-        fragment.appendChild(item);
+        searchDropdown.appendChild(item);
     });
 
-    searchDropdown.appendChild(fragment);
     searchDropdown.classList.add("open");
 }
 
-
-// ================= DROPDOWN OPEN/CLOSE =================
+// ---------------- DROPDOWN OPEN/CLOSE ----------------
 searchInput?.addEventListener("focus", () => {
     searchDropdown?.classList.add("open");
 });
