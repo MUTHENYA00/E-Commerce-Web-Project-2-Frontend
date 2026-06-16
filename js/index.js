@@ -53,16 +53,12 @@ let searchTimeout;
 
 // ---------------- BACKEND SEARCH ----------------
 async function searchProducts(query) {
-    try {
-        const res = await fetch(`/api/products/search?q=${encodeURIComponent(query)}`);
-        if (!res.ok) throw new Error("Search failed");
-        return await res.json();
-    } catch (err) {
-        console.error("Search error:", err);
-        return [];
-    }
-}
+  const res = await fetch(`/api/products?search=${encodeURIComponent(query)}`);
 
+  if (!res.ok) throw new Error("Search failed");
+
+  return await res.json();
+}
 // ---------------- ENTER KEY SEARCH ----------------
 searchInput?.addEventListener("keydown", (e) => {
     if (e.key === "Enter") {
@@ -102,19 +98,17 @@ function showLiveResults(products) {
     }
 
     products.slice(0, 6).forEach(p => {
-        const item = document.createElement("a");
-        item.className = "dropdown-item";
+    const item = document.createElement("a");
 
-        item.href = `/products?search=${encodeURIComponent(p.name)}`;
+    item.className = "dropdown-item";
+    item.href = `/products?search=${encodeURIComponent(p.product_name)}`;
 
-        item.innerHTML = `
-            <strong>${p.name}</strong><br>
-            
-        `;
+    item.innerHTML = `
+        <strong>${p.product_name}</strong><br>
+    `;
 
-        searchDropdown.appendChild(item);
-    });
-
+    searchDropdown.appendChild(item);
+});
     searchDropdown.classList.add("open");
 }
 

@@ -49,24 +49,43 @@ document.addEventListener("DOMContentLoaded", async () => {
     }
 
     const fragment = document.createDocumentFragment();
-    products.forEach(({ id, name, price, image, desc }) => {
-      const card = document.createElement("div");
-      card.className = "product-card";
-      card.innerHTML = `
-        <div class="img-box">
-          <img src="${image}" alt="${name}">
-        </div>
-        <h3>${name}</h3>
-        <p>${desc}</p>
-        <p class="product-price">${price}</p>
-        <button class="buy-now" data-name="${name}" data-price="${price}" data-image="${image}">
-          Buy Now
-        </button>
-        <button class="add-to-cart" data-id="${id}" data-name="${name}" data-price="${price}" data-image="${image}">
-          Add to Cart
-        </button>`;
-      fragment.appendChild(card);
-    });
+   products.forEach((p) => {
+  const card = document.createElement("div");
+  card.className = "product-card";
+
+  const id = p.id;
+  const name = p.product_name || "No name";
+  const price = p.price ?? "";
+  const desc = p.description || "";
+  const image = p.image_path || "/uploads/placeholder.png";
+
+  card.innerHTML = `
+    <div class="img-box">
+      <img src="${image || '/uploads/placeholder.png'}" alt="${name}">
+    </div>
+
+    <h3>${name}</h3>
+    <p>${desc}</p>
+    <p class="product-price">${price}</p>
+
+    <button class="buy-now"
+      data-name="${name}"
+      data-price="${price}"
+      data-image="${image}">
+      Buy Now
+    </button>
+
+    <button class="add-to-cart"
+      data-id="${id}"
+      data-name="${name}"
+      data-price="${price}"
+      data-image="${image}">
+      Add to Cart
+    </button>
+  `;
+
+  fragment.appendChild(card);
+});
     container.appendChild(fragment);
   }
 
@@ -186,16 +205,17 @@ document.addEventListener("DOMContentLoaded", async () => {
 
   // --- 8. INITIALIZATION ---
   async function init() {
-    allProducts = await apiFetch("/api/products");
+   allProducts = await apiFetch("/api/products?page=1&limit=100");
 
     if (category) {
-      const categoryProducts = await apiFetch(`/api/products/category/${encodeURIComponent(category)}`);
+      const categoryProducts = await apiFetch(`/api/products?category=${encodeURIComponent(category)}`);
       renderProducts(categoryProducts, category.replace(/-/g, " "));
     } else if (search) {
       const query = search.toLowerCase();
-      const filtered = allProducts.filter(p => 
-        p.name.toLowerCase().includes(query) || p.desc.toLowerCase().includes(query)
-      );
+     const filtered = allProducts.filter(p =>
+  (p.product_name || '').toLowerCase().includes(query) ||
+  (p.description || '').toLowerCase().includes(query)
+);
       renderProducts(filtered, `Search: ${search}`);
     } else {
       renderProducts(allProducts, "All Products");
@@ -220,5 +240,10 @@ document.addEventListener("DOMContentLoaded", async () => {
   }
 
   // Trigger app entry point
-  init();
+  if (category) {
+  const categoryProducts = await apiFetch(
+    `/api/products?category=${encodeURIComponent(category)}`
+  );
+  renderProducts(categoryProducts, category.replace(/-/g, " "));
+}
 });
